@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon app",
     "bcs": "tailwindcss build src/styles.css -o public/stylest.css"
   },
   "repository": {
