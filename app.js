@@ -89,7 +89,7 @@ app.use(roomRoutes);
 const dbURI = 'mongodb+srv://aakash:mHV2O7OuMrH7JcK0@cluster0.bnq9v.mongodb.net/teams-clone';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
     .then((result)=>{
-        const server= app.listen(3000, ()=>{
+        const server= app.listen(process.env.PORT ||3000, ()=>{
             console.log("listening for requests on port 3000");
         }); 
         //socket setup
