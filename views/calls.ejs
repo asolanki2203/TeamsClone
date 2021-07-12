@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Teams</title>
+        <link rel="stylesheet" href="/stylest.css">
+        <script src="/socket.io/socket.io.js" defer></script>
+        <script src="/calls.js" defer></script>
+    </head>
+    <body class="bg-white">
+      <%- include('partials/authHeader'); -%>
+        <div class="flex">
+            <div class="mx-24 mb-3 mt-36">
+              <p class="text-2xl mb-3 mt-12 mr-48">Enter the email of the person you wish to call:</p>
+              <input id="inp" class="bg-gray-200 w-96 h-12 p-4" placeholder="Enter email" type="email">
+              <button id="search" class="bg-gray-200 h-12 px-4">Search</button>
+              <p id="err" class="text-red-600"></p>
+            </div>
+            <div id="call-box" class="mt-12 mb-16 rounded-lg border-gray-100 border-4 p-4" style="visibility: hidden;">
+                <img id="callerImage" src="/images/call.png" class="w-96 h-auto rounded-full mb-3">
+                <div class="flex">
+                  <h1 id="callerName" class="text-3xl text-gray-600 my-2 mr-12 ml-3">Aakash Solanki</h1>
+                  <a href="#" id="callbtn" class="bg-green-600 p-2 my-2 rounded-lg text-xl px-6 text-white">Call</a>
+                </div>
+            </div>
+          </div>
+<%- include('partials/footer'); -%>

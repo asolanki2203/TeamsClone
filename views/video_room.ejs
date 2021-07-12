@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylest.css">
+    <style>
+        #own-video{
+            transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg); 
+        }
+        /* #second-video{
+            transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg);
+            object-fit: cover;
+        } */
+    </style>
+    <link rel="stylesheet" href="/chat.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script>
+        const userID= "<%= userID %>";
+        const RId= "<%= roomId %>";
+    </script>
+    <script src="/video-room.js" defer></script>
+    <title>Teams</title>
+</head>
+
+<body class="" style="background-color: #242424;">
+    <!-- <nav class="z-10">
+        <a class="flex">
+            <div class="px-2">
+                <img class="w-auto ml-6 py-2" style="height: 4.4rem;" src="/images/microsoftlogo.png">
+            </div>
+            <div class="text-white py-3 text-3xl" style="position: relative;">
+                <h1>| Teams</h1>
+            </div>
+        </a>
+    </nav> -->
+
+    <div id="video_call" class=" top-0 left-0 w-full h-full z-0" style="position: absolute;">
+
+        <video id="second-video" class="z-0 w-3/4 h-3/5 p-4 pb-0" style="position: absolute; height: 620px; left: 12%; background-color: #242424;"  autoplay></video>
+        <video id="own-video" class="top-0 right-0 m-12 w-1/6 h-1/5 bg-black z-10 object-cover" autoplay></video> 
+        
+        <div id="icons" class="flex z-10 p-2 px-4 rounded-t-lg" style="position: absolute; left:36%; top:88%; background-color: #242424;">
+            <button id="muteAudio" class=" mr-4"><img id="muteAudioimg" class="w-12 h-12 p-2 border-2 border-white rounded-full" src="/images/mute-icon.png"></button>
+            <button id="muteVideo" class="mr-4"><img id="muteVideoimg" class="w-12 h-12 p-2 border-2 border-white rounded-full" src="/images/videomicon.png"></button>
+            <button id="chatWindow" class="mr-4"><img id="chatWindowimg" src="/images/chaticon.png" class="w-12 h-12 p-2 border-2 border-white rounded-full"></button>
+            <button id="shareScreen" class="mr-4"><img id="screenShareimg" class="w-12 h-12 p-2 border-2 border-white rounded-full" src="/images/screenshareno.png"></button>
+            <button id="endCall"><img class="w-12 h-12" src="/images/callend.png"></button>
+        </div>
+        <!-- chat -->
+        <div id="chatTab" style="width: 25%; position: absolute; left: 75%; top: 0%; visibility: hidden;">
+            <div class="bg-white p-2 rounded-t-md">
+                <div class="flex">
+                    <h1 class="text-gray-400 text-xl ml-4 mt-2" style="font-family: monospace;">CHAT</h1>
+                    <img id="close-btn" src="/images/crossicon.jpg" class="mt-2 w-5 h-5 rounded-full" style="position: absolute; left: 93%;">
+                </div> 
+                <ul id="mesgs" class="chat overflow-scroll p-5" style="height: 31rem;">
+                    
+                </ul>  
+            </div>
+            <div class="chat-box bg-white rounded-b-lg">
+                <div class="input-group">
+                    <input id="messageContent" class="form-control border no-shadow no-rounded w-72 p-2" placeholder="Type your message here">
+                    <span class="input-group-btn">
+                        <button id="sendBtn" class="btn btn-success no-rounded bg-green-500 text-white px-2 py-2 rounded-md" type="button">Send</button>
+                    </span>
+                </div><!-- /input-group -->	
+            </div>   
+        </div>
+    </div>
+</body>
+</html>
