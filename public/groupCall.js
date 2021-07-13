@@ -27,7 +27,8 @@ let aud=true, vid=true, ss=false;
 
 const myPeer = new Peer(undefined, {
     host: 'https://teams-clone-a22solanki.herokuapp.com/',
-    port: '3001'
+    port: '443',
+    secure: true
 })
 
 myPeer.on('open', id=>{
