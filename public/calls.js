@@ -46,7 +46,7 @@ callbtn.addEventListener('click', async ()=>{
             body: JSON.stringify({userToCall})
         });
         const linkData= await ress.json();
-        let mesgContent= u1ser.innerText+" has invited you to join a call. Click on this link to join- "+ linkData.link;
+        let mesgContent= u1ser.innerText+" has invited you to join a call. Click on this link to join- https://teams-clone-a22solanki.herokuapp.com/"+ linkData.link;
         let currentDate = new Date();
         let tim = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
         socket.emit('send-message', {
