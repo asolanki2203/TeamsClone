@@ -1,6 +1,6 @@
 const express= require('express');
 const session = require('express-session'); 
-const {secrt, cid, clientSecret}= require('./config.json');
+require('dotenv').config();
 const socket= require('socket.io');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -20,6 +20,12 @@ const OneChat= require('./models/Onechat');
 const sessionStore= new session.MemoryStore();
 
 const app= express();
+
+//process.env variables
+let cid=process.env.cid;
+let secrt=process.env.secrt;
+let clientSecret=process.env.clientSecret;
+let DB_ACCESS_USER=process.env.DB_ACCESS_USER;
 
 //middlewares
 app.set('view engine', 'ejs');
@@ -86,7 +92,7 @@ app.use(meetRoutes);
 app.use(roomRoutes);
 
 //listen to requests
-const dbURI = 'mongodb+srv://aakash:mHV2O7OuMrH7JcK0@cluster0.bnq9v.mongodb.net/teams-clone';
+const dbURI = DB_ACCESS_USER;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
     .then((result)=>{
         const server= app.listen(process.env.PORT ||3000, ()=>{
