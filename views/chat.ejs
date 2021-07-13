@@ -40,8 +40,7 @@
                 </li>
 				<% arr.forEach((e)=>{ %> 
 					<li class="active bounceInDown">
-						<% let u=e.suid %>
-						<a  class="clearfix" onclick="getPersonalChat(<%= u %>)">
+						<a href=<%= e.suid %> id="getPersonalChat" class="clearfix">
 							<img id="chattie-image" src= <%= e.sdp %> alt="" class="img-circle">
 							<div class="friend-name flex">	
 								<strong id="u2ser"><%= e.sname %></strong>
