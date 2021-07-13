@@ -1,4 +1,4 @@
-const socket = io.connect('http://localhost:3000/'),
+const socket = io.connect('https://teams-clone-a22solanki.herokuapp.com/'),
     sendBtn= document.getElementById('sendBtn'),
     messageContent= document.getElementById('messageContent'),
     mesgs= document.getElementById('mesgs'),
