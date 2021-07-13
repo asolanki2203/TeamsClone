@@ -25,7 +25,7 @@ myVideo.muted= true;
 //mute audio and video functionality
 let aud=true, vid=true, ss=false;
 
-const myPeer = new Peer(undefined, {
+const myPeer = new window.Peer(undefined, {
     host: 'https://peerjs-server-teams-clone.herokuapp.com/',
     port: '443',
     secure: true,
