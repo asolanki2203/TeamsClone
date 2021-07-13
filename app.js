@@ -40,7 +40,7 @@ app.use(passport.session());
 passport.use(new facebookStrategy({
     clientID: cid,
     clientSecret: clientSecret, 
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    callbackURL: "https://teams-clone-a22solanki.herokuapp.com/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'name', 'gender', 'picture.type(large)', 'email']
 },
 function(token, refreshToken, profile, done){
