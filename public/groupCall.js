@@ -1,5 +1,5 @@
 //we have access to socket.io here as we included it in our main file
-const socket = io.connect('http://localhost:3000/'),
+const socket = io.connect('https://teams-clone-a22solanki.herokuapp.com/'),
     videoGrid= document.getElementById('video-grid'),
     muteAudio = document.getElementById('muteAudio'),
     muteVideo= document.getElementById('muteVideo'),
