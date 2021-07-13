@@ -2,7 +2,6 @@ const inp = document.getElementById('inp'),
     addChat = document.getElementById('addChat'),
     errr=document.getElementById('errr'),
     contacts= document.getElementById('contacts'),
-    getPersonalChat= document.getElementById('getPersonalChat'),
     socket = io.connect('https://teams-clone-a22solanki.herokuapp.com/'),
     sendBtn= document.getElementById('sendBtn'),
     messageContent= document.getElementById('messageContent'),
@@ -48,9 +47,9 @@ addChat.addEventListener('click', async (e)=>{
 });
 
 //fetching a personal chat
-getPersonalChat.addEventListener('click', async (e)=>{
-    e.preventDefault();
-    const sid= getPersonalChat.getAttribute('href');
+let getPersonalChat= async (u)=>{
+//     e.preventDefault();
+    const sid= u;
     try{
         const resp= await fetch('/getPersonalChat', {
             method: 'POST',
@@ -71,7 +70,7 @@ getPersonalChat.addEventListener('click', async (e)=>{
     }catch(err){
         console.log(err);
     }
-});
+};
 
 //handling new messages
 socket.on('recieve-message', (data)=>{
