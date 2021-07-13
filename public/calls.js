@@ -6,7 +6,7 @@ const inp = document.getElementById('inp'),
     callerName=document.getElementById('callerName'),
     callbtn= document.getElementById('callbtn'),
     u1ser= document.getElementById('u1ser'),
-    socket = io.connect('http://localhost:3000/');
+    socket = io.connect('https://teams-clone-a22solanki.herokuapp.com/');
 
 let userToCall=null;
 //search button functionality, if a user is found, this generates appropriate UI for calling
