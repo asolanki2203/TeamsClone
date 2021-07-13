@@ -7,7 +7,7 @@ const passport = require('passport');
 const facebookStrategy = require('passport-facebook').Strategy;
 const passportSocketIo= require('passport.socketio');
 const cookieParser= require('cookie-parser');
-const { ExpressPeerServer } = require('peer');
+
 const indexRoutes= require('./routes/indexRoutes');
 const homeRoutes= require('./routes/homeRoutes');
 const callsRoutes= require('./routes/callsRoutes');
@@ -97,12 +97,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCr
     .then((result)=>{
         const server= app.listen(process.env.PORT ||3000, ()=>{
             console.log("listening for requests on port 3000");
-        }); 
-        const peerServer = ExpressPeerServer(server, {
-             path: '/myapp'
         });
-
-app.use('/peerjs', peerServer);
 
         //socket setup
         const io=socket(server);
