@@ -26,10 +26,9 @@ myVideo.muted= true;
 let aud=true, vid=true, ss=false;
 
 const myPeer = new Peer(undefined, {
-    host: 'https://teams-clone-a22solanki.herokuapp.com/',
+    host: 'https://peerjs-server-teams-clone.herokuapp.com/',
     port: '443',
     secure: true,
-    path: '/myapp'
 })
 
 myPeer.on('open', id=>{
